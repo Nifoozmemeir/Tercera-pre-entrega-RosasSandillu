@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% block header %}
+            <h1>Biblioteca multimedia</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'libro_list' %}">Libros</a></li>
+                    <li><a href="{% url 'pelicula_list' %}">Películas</a></li>
+                    <li><a href="{% url 'musica_list' %}">Música</a></li>
+                </ul>
+            </nav>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+            <p>Derechos reservados</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if model == 'Libro' %}
+        Libros
+    {% elif model == 'Pelicula' %}
+        Películas
+    {% elif model == 'Musica' %}
+        Música
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% block header %}{% endblock %}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Artista/Autor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.titulo }}</td>
+                    <td>{{ item.artista_autor }}</td>
+                    <td>
+                        <a href="#">Editar</a>
+                        <a href="#">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.model_name == 'Libro' %}
+        Nuevo libro
+    {% elif form.model_name == 'Pelicula' %}
+        Nueva película
+    {% elif form.model_name == 'Musica' %}
+        Nueva canción
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% block header %}{% endblock %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
