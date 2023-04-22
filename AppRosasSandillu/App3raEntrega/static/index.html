@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    {% load static %}
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -18,10 +18,10 @@ https://templatemo.com/tm-537-art-factory
 
 -->
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/templatemo-art-factory.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl-carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
 
     </head>
     
@@ -49,10 +49,10 @@ https://templatemo.com/tm-537-art-factory
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="navbar-brand"><a href="{% url 'Inicio' %}" class="active">Home</a></li>
-                            <li class="navbar-brand"><a href="{% url 'Libros' %}">Libros</a></li>
-                            <li class="navbar-brand"><a href="{% url 'Peliculas' %}">Peliculas</a></li>
-                            <li class="navbar-brand"><a href="{% url 'Musica' %}">Música</a></li>
+                            <li class="navbar-brand"><a href="#welcome" class="active">Home</a></li>
+                            <li class="navbar-brand"><a href="#about">About</a></li>
+                            <li class="navbar-brand"><a href="#services">Services</a></li>
+                            <li class="navbar-brand"><a href="#frequently-question">Frequently Questions</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
                                 <ul>
@@ -62,7 +62,7 @@ https://templatemo.com/tm-537-art-factory
                                     <li><a href="">Blog</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="{% url 'BusquedaGenero' %}">Busqueda de genero de peliculas</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -84,12 +84,12 @@ https://templatemo.com/tm-537-art-factory
             <div class="container">
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Agrega tu música, libros y peliculas para <strong>no perderlas!!</strong></h1>
-                        <p>Tercera pre entrega - Rosas Sandillú, Julián - Curso python - Coderhouse</p>
+                        <h1>Art Factory is free <strong>for YOU</strong></h1>
+                        <p>This template is available for 100% free of charge on TemplateMo. Download, modify and use this for your business website.</p>
                         <a href="#about" class="main-button-slider">Find Out More</a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                        <img src="{% static 'assets/images/slider-icon.png' %}" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                        <img src="assets/images/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
                     </div>
                 </div>
             </div>
@@ -99,41 +99,37 @@ https://templatemo.com/tm-537-art-factory
     <!-- ***** Welcome Area End ***** -->
 
     <!-- ***** Features Small Start ***** -->
-    {% block contenidoQCambia %}
-            
-    {% endblock contenidoQCambia %}
-
     <section class="section" id="services">
         <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme">
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-01.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-01.png" alt=""></i>
                         </div>
-                        <h5 class="service-title">Agrega tus libros</h5>
-                        <p>Agrega tus libros favoritos haciendo click en agregar.</p>
-                        <a href="{% url 'AgregarLibros' %}" class="main-button">Agregar</a>
+                        <h5 class="service-title">First Box Service</h5>
+                        <p>Aenean vulputate massa sed neque consectetur, ac fringilla quam aliquet. Sed a enim nec eros tempor cursus at id libero.</p>
+                        <a href="#" class="main-button">Read More</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-02.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-02.png" alt=""></i>
                         </div>
-                        <h5 class="service-title">Agrega tus peliculas</h5>
-                        <p>Agrega tus peliculas favoritas haciendo click en agregar.</p>
-                        <a href="{% url 'AgregarPeliculas' %}" class="main-button">Agregar</a>
+                        <h5 class="service-title">Second Box Title</h5>
+                        <p>Pellentesque vitae urna ut nisi viverra tristique quis at dolor. In non sodales dolor, id egestas quam. Aliquam erat volutpat. </p>
+                        <a href="#" class="main-button">Discover More</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-03.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-03.png" alt=""></i>
                         </div>
-                        <h5 class="service-title">Agrega tu música</h5>
-                        <p>Agrega tu música favorita haciendo click en agregar.</p>
-                        <a href="{% url 'AgregarMusica' %}" class="main-button">Agregar</a>
+                        <h5 class="service-title">Third Title Box</h5>
+                        <p>Quisque finibus libero augue, in ultrices quam dictum id. Aliquam quis tellus sit amet urna tincidunt bibendum.</p>
+                        <a href="#" class="main-button">More Detail</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-02.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-02.png" alt=""></i>
                         </div>
                         <h5 class="service-title">Fourth Service Box</h5>
                         <p>Fusce sollicitudin feugiat risus, tempus faucibus arcu blandit nec. Duis auctor dolor eu scelerisque vestibulum.</p>
@@ -141,7 +137,7 @@ https://templatemo.com/tm-537-art-factory
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-01.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-01.png" alt=""></i>
                         </div>
                         <h5 class="service-title">Fifth Service Title</h5>
                         <p>Curabitur aliquam eget tellus id porta. Proin justo sapien, posuere suscipit tortor in, fermentum mattis elit.</p>
@@ -149,7 +145,7 @@ https://templatemo.com/tm-537-art-factory
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-03.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-03.png" alt=""></i>
                         </div>
                         <h5 class="service-title">Sixth Box Title</h5>
                         <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
@@ -157,7 +153,7 @@ https://templatemo.com/tm-537-art-factory
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{% static 'assets/images/service-icon-01.png' %}" alt=""></i>
+                            <i><img src="assets/images/service-icon-01.png" alt=""></i>
                         </div>
                         <h5 class="service-title">Seventh Title Box</h5>
                         <p>Sed a consequat velit. Morbi lectus sapien, vestibulum et sapien sit amet, ultrices malesuada odio. Donec non quam.</p>
@@ -192,21 +188,21 @@ https://templatemo.com/tm-537-art-factory
     </footer>
     
     <!-- jQuery -->
-    <script src="{% static 'assets/js/jquery-2.1.0.min.js' %}"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="{% static 'assets/js/popper.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-    <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
-    <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'assets/js/imgfix.min.js' %}"></script> 
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
     
     <!-- Global Init -->
-    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="assets/js/custom.js"></script>
 
   </body>
 </html>

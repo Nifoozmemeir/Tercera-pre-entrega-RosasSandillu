@@ -1,11 +1,15 @@
+from django.contrib import admin
 from django.urls import path
-from .views import BookListView, MovieListView, MusicListView, book_create, movie_create, music_create
+from .views import *
 
 urlpatterns = [
-    path('books/', BookListView.as_view(), name='book-list'),
-    path('movies/', MovieListView.as_view(), name='movie-list'),
-    path('music/', MusicListView.as_view(), name='music-list'),
-    path('books/create/', book_create, name='book-create'),
-    path('movies/create/', movie_create, name='movie-create'),
-    path('music/create/', music_create, name='music-create'),
+    path('libros', libros, name='Libros'),
+    path('pelis', peliculas, name='Peliculas'),
+    path('musica', musica, name='Musica'),
+    path('agregar-libro', libro_formulario, name='AgregarLibros'),
+    path('agregar-peli', peliculas_formulario, name='AgregarPeliculas'),
+    path('agregar-musica', musica_formulario, name='AgregarMusica'),
+    path('', inicio, name='Inicio'),
+    path('busq-gen', busqueda_genero, name="BusquedaGenero"),
+    path('buscar', buscar, name="Buscar"),
 ]

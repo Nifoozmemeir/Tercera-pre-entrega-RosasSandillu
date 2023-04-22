@@ -1,18 +1,20 @@
 from django import forms
-from .models import Libro, Pelicula, Musica
 
-class LibroForm(forms.ModelForm):
-    class Meta:
-        model = Libro
-        fields = ('titulo', 'autor', 'descripcion')
+class Libro_Formulario(forms.Form):
+    titulo = forms.CharField(max_length=200)
+    creador = forms.CharField(max_length=200)
+    genero = forms.CharField(max_length=200)
+    sinopsis = forms.CharField(max_length=200)
 
-class PeliculaForm(forms.ModelForm):
-    class Meta:
-        model = Pelicula
-        fields = ('titulo', 'director', 'descripcion')
+class Peliculas_Formulario(forms.Form):
+    titulo = forms.CharField(max_length=200)
+    creador = forms.CharField(max_length=200)
+    genero = forms.CharField(max_length=200)
+    sinopsis = forms.CharField(max_length=200)
 
-class MusicaForm(forms.ModelForm):
-    class Meta:
-        model = Musica
-        fields = ('titulo', 'artista', 'descripcion')
+class Musica_Formulario(forms.Form):
+    titulo = forms.CharField(max_length=200)
+    creador = forms.CharField(max_length=200)
+    genero = forms.CharField(max_length=200)
+
 

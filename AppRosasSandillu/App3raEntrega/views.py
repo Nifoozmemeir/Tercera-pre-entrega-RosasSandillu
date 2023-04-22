@@ -1,44 +1,66 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from django.db.models import Q
-from .models import Libro, Pelicula, Musica
-from .forms import LibroForm, PeliculaForm, MusicaForm
+from django.http import HttpResponse
+from .models import *
+from .forms import *
 
-class BookListView(ListView):
-    model = Libro
-    template_name = 'libro_list.html'
+def inicio(request):
+    return render(request, "inicio.html")
 
-class MovieListView(ListView):
-    model = Pelicula
-    template_name = 'pelicula_list.html'
+def libros(request):
+    lista = Libro.objects.all()
+    return render(request, "libros.html", {"libros": lista})
 
-class MusicListView(ListView):
-    model = Musica
-    template_name = 'musica_list.html'
+def peliculas(request):
+    lista = Pelicula.objects.all()
+    return render(request, "peliculas.html", {"peliculas": lista})
 
-def book_create(request):
+def musica(request):
+    lista = Musica.objects.all()
+    return render(request, "musica.html", {"musica": lista})
+
+def libro_formulario(request):
     if request.method == 'POST':
-        form = LibroForm(request.POST)
-        if form.is_valid():
-            form.save()
+        mi_formulario = Libro_Formulario(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            libro = Libro(titulo=request.POST['titulo'], creador=request.POST['creador'], genero=request.POST['genero'], sinopsis=request.POST['sinopsis'])
+            libro.save()
+        return render(request, "inicio.html")
     else:
-        form = LibroForm()
-    return render(request, 'libro_form.html', {'form': form})
-
-def movie_create(request):
+        mi_formulario = Libro_Formulario()
+        return render(request, "libro_formulario.html", {"mi_formulario": mi_formulario})
+    
+def peliculas_formulario(request):
     if request.method == 'POST':
-        form = PeliculaForm(request.POST)
-        if form.is_valid():
-            form.save()
+        mi_formulario = Peliculas_Formulario(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            pelicula = Pelicula(titulo=request.POST['titulo'], creador=request.POST['creador'], genero=request.POST['genero'], sinopsis=request.POST['sinopsis'])
+            pelicula.save()
+        return render(request, "inicio.html")
     else:
-        form = PeliculaForm()
-    return render(request, 'pelicula_form.html', {'form': form})
-
-def music_create(request):
+        mi_formulario = Peliculas_Formulario()
+        return render(request, "pelicula_formulario.html", {"mi_formulario": mi_formulario})
+    
+def musica_formulario(request):
     if request.method == 'POST':
-        form = MusicaForm(request.POST)
-        if form.is_valid():
-            form.save()
+        mi_formulario = Musica_Formulario(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            musica = Musica(titulo=request.POST['titulo'], creador=request.POST['creador'], genero=request.POST['genero'])
+            musica.save()
+        return render(request, "inicio.html")
     else:
-        form = MusicaForm()
-    return render(request, 'musica_form.html', {'form': form})
+        mi_formulario = Musica_Formulario()
+        return render(request, "musica_formulario.html", {"mi_formulario": mi_formulario})
+
+def busqueda_genero(request):
+    return render(request, "busqueda_genero.html")
+
+def buscar(request):
+    if request.GET["genero"]:
+        genero = request.GET["genero"]
+        peliculas = Pelicula.objects.filter(genero=genero)
+        return render(request, "resultados_busqueda.html", {"peliculas": peliculas, "genero": genero})
+    else:
+        return HttpResponse("No enviaste info, por favor ingresa algo nuevamente")
